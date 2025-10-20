@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerdeDigital 🌳</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <h1>🌎 VerdeDigital</h1>
+    <p>Registre áreas reflorestadas e veja o mapa verde crescer!</p>
+  </header>
+
+  <main>
+    <section id="formulario">
+      <h2>Registrar nova ação 🌱</h2>
+      <form id="form">
+        <input type="text" id="nome" placeholder="Seu nome" required />
+        
+        <!-- Seleção de cidade -->
+        <select id="cidade" required>
+          <option value="">Selecione uma cidade</option>
+        </select>
+
+        <input type="number" id="qtd" placeholder="Árvores plantadas" required />
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+
+    <section id="mapa"></section>
+  </main>
+
+  <footer>
+    <p>Feito com 💚 para o planeta — Projeto VerdeDigital</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
