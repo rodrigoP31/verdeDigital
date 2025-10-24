@@ -1,8 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+*h1 {
+  font-size: 3em;
+  color: #a8ff9e;
+  text-shadow: 0 0 10px #00ff80, 0 0 20px #00ff80, 0 0 40px #00ff80;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
 }
 
 body {
@@ -161,3 +162,4 @@ footer {
     padding: 8px;
     border-bottom: 1px solid #f4f4f4;
 }
+
