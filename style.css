@@ -66,7 +66,7 @@ main {
 footer {
    text-align: center;
     padding: 15px;
-    margin-top: 60px;
+    margin-top: 20px;
     background: #3b873e;
     color: white;
 }
@@ -161,6 +161,7 @@ footer {
     padding: 8px;
     border-bottom: 1px solid #f4f4f4;
 }
+
 
 
 
