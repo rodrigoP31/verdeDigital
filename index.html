@@ -45,63 +45,7 @@
         <button type="submit">Registrar</button>
       </form>
     </section>
-        <div id="mapa"></div>
-
-  <script>
-    // Cria o mapa
-    const mapa = L.map("mapa").setView([-14.235, -51.9253], 4);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap"
-    }).addTo(mapa);
-
-    document.getElementById("form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const nome = document.getElementById("nome").value;
-      const cidade = document.getElementById("cidade").value;
-      const descricao = document.getElementById("descricao").value;
-      const foto = document.getElementById("foto").files[0];
-
-      if (!foto) return alert("Envie uma foto!");
-
-      const fotoURL = URL.createObjectURL(foto);
-
-      fetch(https://nominatim.openstreetmap.org/search?format=json&q=${cidade})
-        .then(res => res.json())
-        .then(data => {
-          if (data.length === 0) return alert("Cidade não encontrada!");
-
-          const lat = data[0].lat;
-          const lon = data[0].lon;
-
-          const marcador = L.marker([lat, lon]).addTo(mapa);
-
-          const popup = `
-            <b>${nome}</b><br>
-            📍 ${cidade}<br>
-            <p>${descricao}</p>
-            <button onclick="mostrarImagem(this)">🌳 Ver árvore</button>
-            <div style="display:none;"><img src="${fotoURL}" width="200"></div>
-          `;
-
-          marcador.bindPopup(popup);
-          mapa.setView([lat, lon], 10);
-          document.getElementById("form").reset();
-        });
-    });
-
-    function mostrarImagem(botao) {
-      const imgDiv = botao.nextElementSibling;
-      if (imgDiv.style.display === "none") {
-        imgDiv.style.display = "block";
-        botao.textContent = "🌿 Ocultar";
-      } else {
-        imgDiv.style.display = "none";
-        botao.textContent = "🌳 Ver árvore";
-      }
-    }
-  </script>
-</body>
-
+       
     <!-- CONTROLES: limpar / exportar / importar / gerenciar -->
     <section id="controles" class="card">
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -136,6 +80,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
