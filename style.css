@@ -64,13 +64,11 @@ main {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+   text-align: center;
+    padding: 15px;
+    margin-top: 60px;
     background: #3b873e;
     color: white;
-    text-align: center;
-    padding: 12px;
 }
 
 .card {
@@ -163,6 +161,7 @@ footer {
     padding: 8px;
     border-bottom: 1px solid #f4f4f4;
 }
+
 
 
 
