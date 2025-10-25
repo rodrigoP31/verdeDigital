@@ -79,6 +79,27 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBTjYbY3hGRaieYT7fg1xzVRuvxo33UfJE",
+  authDomain: "verdedigital-32da3.firebaseapp.com",
+  projectId: "verdedigital-32da3",
+  storageBucket: "verdedigital-32da3.firebasestorage.app",
+  messagingSenderId: "604107482077",
+  appId: "1:604107482077:web:d1078b6a60ca6a1af9cc34",
+  measurementId: "G-XBTE7TSFD8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 </html>
 
 
