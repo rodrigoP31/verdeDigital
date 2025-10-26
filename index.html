@@ -78,6 +78,49 @@ j<!DOCTYPE html>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
+<script>
+// Inicializa o mapa
+const map = L.map('map').setView([-3.4653, -62.2159], 13);
+
+// Adiciona o mapa base (do Leaflet)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+// Função para carregar as árvores salvas
+function carregarArvores() {
+  const arvores = JSON.parse(localStorage.getItem('arvores')) || [];
+  arvores.forEach(a => {
+    const marker = L.marker([a.lat, a.lng]).addTo(map);
+    marker.bindPopup(`<b>${a.nome}</b><br>${a.descricao}<br><button onclick="mostrarArvore('${a.imagem}')">🌳 Ver Árvore</button>`);
+  });
+}
+
+// Função para adicionar nova árvore
+function adicionarArvore(lat, lng, nome, descricao, imagem) {
+  const arvores = JSON.parse(localStorage.getItem('arvores')) || [];
+  arvores.push({ lat, lng, nome, descricao, imagem });
+  localStorage.setItem('arvores', JSON.stringify(arvores));
+  carregarArvores(); // atualiza o mapa
+}
+
+// Mostra a imagem da árvore
+function mostrarArvore(imagem) {
+  alert("🌿 Aqui está a imagem da sua árvore!");
+  window.open(imagem, '_blank'); // abre em nova aba
+}
+
+// Evento: clicar no mapa para adicionar árvore
+map.on('click', (e) => {
+  const nome = prompt("Seu nome:");
+  const descricao = prompt("Fale um pouco sobre você e a árvore que plantou:");
+  const imagem = prompt("Cole o link da imagem da sua árvore:");
+  adicionarArvore(e.latlng.lat, e.latlng.lng, nome, descricao, imagem);
+});
+
+// Carrega as árvores salvas ao iniciar
+carregarArvores();
+</script>
 </body>
 </html>
 
